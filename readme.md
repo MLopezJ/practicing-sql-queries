@@ -1,0 +1,2 @@
+# Practicing SQL queries
+
