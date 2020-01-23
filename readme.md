@@ -62,3 +62,15 @@ SELECT count("NCANTON") as "NumCantones", "NPROVINCIA" as "Provincia" FROM "Cant
 ```
 SELECT sum("POB_2011_H") + sum("POB_2011_M") AS "Pob2011", "NPROVINCIA" as "Provincia" FROM "Cantones2014ctm05" group by "NPROVINCIA";
 ```
+
+11- Generate a query for get the total of men, total of woman, total population, area in square kilometers and population density by "provincia".
+
+```
+SELECT "NPROVINCIA" AS "Provincia", sum("POB_2011_H") as "PobHombres",sum("POB_2011_M") as "PobMujeres", sum("POB_2011_H") + sum("POB_2011_M") AS "PobTotal",  sum("HECTARES") as "Km2", ((sum("POB_2011_H") + sum("POB_2011_M"))/(sum("HECTARES"))*100)  as "DensPob" FROM "Cantones2014ctm05" group by "NPROVINCIA";
+```
+
+12- Shows the "canton" name and the "provincia" name for those cases when their "cantones" name contains the letter R and S.
+
+```
+SELECT concat(NCANTON,'-->',NPROVINCIA) as 'CantonProvincia' FROM "Cantones2014ctm05" WHERE "NCANTON" LIKE '%R%' OR "NCANTON" LIKE '%S%';
+```
